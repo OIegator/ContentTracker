@@ -3,20 +3,20 @@ import * as d3 from "d3";
 
 document.addEventListener("DOMContentLoaded", setup);
 
-function setup(){
+function setup() {
     Initialize();
     document.getElementById('submit').onclick = submitIt;
 }
 
-function SetGame(id = "pyre"){
+function SetGame(id = "pyre") {
     const rawg = new RAWG();
-    rawg.games(id).then(data=>{
+    rawg.games(id).then(data => {
         const listContainer = document.getElementById("gamesList")
         RenderGame(data, listContainer);
     })
 }
 
-function RenderGame(data, container){
+function RenderGame(data, container) {
     const name = data.name;
     const poster = data.background_image;
     const div = document.createElement("div");
@@ -30,7 +30,7 @@ function RenderGame(data, container){
     container.appendChild(div);
 }
 
-function submitIt(){
+function submitIt() {
     const gameName = document.getElementById('game-name').value;
     DUMMY_DATA[month2int.get(selected.innerText)].value++;
     renderChart();
@@ -38,18 +38,18 @@ function submitIt(){
 }
 
 const listOfGames = [
-    { name: "transistor", month: "January" }, { name: "final-fantasy-vii-remake", month: "January" },
-    { name:  "pyre", month: "January" }, { name: "guardians-of-the-galaxy", month: "February" },
-    { name:  "horizon-zero-dawn-2", month: "March" }, { name: "ori-and-the-blind-forest", month: "May" },
-    { name:  "ori-and-the-will-of-the-wisps", month: "May" }, { name:  "tunic", month: "August" },
-    { name: "teenage-mutant-ninja-turtles-shredders-revenge", month: "August" },
-    { name:  "a-plague-tale-innocence", month: "August" }, { name: "Dishonored", month: "August" },
-    { name:   "man-of-medan", month: "August" }, { name: "what-remains-of-edith-finch", month: "September" },
-    { name:  "silent-hill-2", month: "September" }, { name: "deathloop-2", month: "October" },
-    { name:  "a-plague-tale-requiem", month: "October" } ];
+    {name: "transistor", month: "January"}, {name: "final-fantasy-vii-remake", month: "January"},
+    {name: "pyre", month: "January"}, {name: "guardians-of-the-galaxy", month: "February"},
+    {name: "horizon-zero-dawn-2", month: "March"}, {name: "ori-and-the-blind-forest", month: "May"},
+    {name: "ori-and-the-will-of-the-wisps", month: "May"}, {name: "tunic", month: "August"},
+    {name: "teenage-mutant-ninja-turtles-shredders-revenge", month: "August"},
+    {name: "a-plague-tale-innocence", month: "August"}, {name: "Dishonored", month: "August"},
+    {name: "man-of-medan", month: "August"}, {name: "what-remains-of-edith-finch", month: "September"},
+    {name: "silent-hill-2", month: "September"}, {name: "deathloop-2", month: "October"},
+    {name: "a-plague-tale-requiem", month: "October"}];
 
-function Initialize(){
-    listOfGames.forEach(game=>{
+function Initialize() {
+    listOfGames.forEach(game => {
         DUMMY_DATA[month2int.get(game.month)].value++;
         renderChart();
         SetGame(game.name)
@@ -57,10 +57,10 @@ function Initialize(){
 }
 
 const DUMMY_DATA = [
-    {id: 'd1', value: 10, month: 'Jan'},
-    {id: 'd2', value: 11, month: 'Feb'},
-    {id: 'd3', value: 12, month: 'Mar'},
-    {id: 'd4', value: 6, month: 'Apr'},
+    {id: 'd1', value: 0, month: 'Jan'},
+    {id: 'd2', value: 0, month: 'Feb'},
+    {id: 'd3', value: 0, month: 'Mar'},
+    {id: 'd4', value: 0, month: 'Apr'},
     {id: 'd5', value: 0, month: 'May'},
     {id: 'd6', value: 0, month: 'Jun'},
     {id: 'd7', value: 0, month: 'Jul'},
@@ -68,7 +68,7 @@ const DUMMY_DATA = [
     {id: 'd9', value: 0, month: 'Sep'},
     {id: 'd10', value: 0, month: 'Oct'},
     {id: 'd11', value: 0, month: 'Nov'},
-    {id: 'd12', value: 2, month: 'Dec'},
+    {id: 'd12', value: 0, month: 'Dec'},
 ];
 
 const month2int = new Map([
