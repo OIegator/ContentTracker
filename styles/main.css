@@ -27,6 +27,8 @@ body {
 
 .poster {
     position: relative;
+    display: flex;
+    justify-content: center;
     max-width: 380px;
     height: 200px;
     padding: 0;
@@ -37,12 +39,8 @@ body {
 }
 
 .poster img{
-    max-width:100%;
-    max-height:100%;
-}
-
-.poster:hover img{
-
+    max-width: 100%;
+    display: block;
 }
 
 .poster .details {
@@ -79,9 +77,9 @@ body {
 input {
     min-width: 10em;
     position: relative;
-    padding: 10px;
-    margin-right: 5px;
-    border-radius: 10px;
+    padding: 1.2em;
+    margin: 0.3em;
+    border-radius: 0.5em;
     font-family: Roboto-Bold, serif;
     background-color: #343434;
     color: #f2f2f2;
@@ -90,12 +88,12 @@ input {
 }
 
 .btn {
-    padding: 12px;
+    padding: 1em;
     background-color: #343434;
     font-family: Roboto-Bold, serif;
-    border-radius: 10px;
+    border-radius: 0.5em;
     border: 0;
-    margin-left: 0.3em;
+    margin: 0.3em;
     color: rgba(255, 255, 255, 0.9);
 }
 
@@ -122,6 +120,7 @@ input {
 }
 
 .select {
+    margin: 0.3em;
     font-family: Roboto-Bold, serif;
     background: #343434;
     color: #fff;
@@ -159,7 +158,6 @@ input {
     list-style: none;
     padding: 0.2em 0.5em;
     background: #343434;
-
     box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
     border-radius: 0.5em;
     color: #9fa5b5;
